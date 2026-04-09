@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600&display=swap");
+
+:root {
+  --bg: #f7f4ea;
+  --panel: rgba(255, 255, 255, 0.72);
+  --ink: #1f2d3d;
+  --muted: #5e6878;
+  --primary: #1f7a8c;
+  --primary-strong: #0f5f70;
+  --accent: #f2a541;
+  --danger: #bb3e03;
+  --line: rgba(31, 45, 61, 0.15);
+  --shadow: 0 14px 40px rgba(31, 45, 61, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(242, 165, 65, 0.24), transparent 35%),
+    radial-gradient(circle at 85% 20%, rgba(31, 122, 140, 0.2), transparent 40%),
+    linear-gradient(160deg, #fffdf8 0%, #f7f4ea 45%, #eaf4f7 100%);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.2rem 1rem 2.5rem;
+  animation: rise-in 450ms ease-out;
+}
+
+.hero {
+  margin-bottom: 1.4rem;
+}
+
+.hero-kicker {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-strong);
+  margin: 0 0 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.7rem, 3.2vw, 2.8rem);
+  font-weight: 600;
+}
+
+.hero-subtitle {
+  margin: 0.45rem 0 0;
+  max-width: 48ch;
+  color: var(--muted);
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 1.1rem;
+}
+
+.card-heading h2 {
+  margin: 0;
+  font-size: 1.22rem;
+}
+
+.card-heading p {
+  color: var(--muted);
+  margin: 0.2rem 0 0.9rem;
+  font-size: 0.95rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+label {
+  display: grid;
+  gap: 0.36rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.64rem 0.72rem;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+input:focus {
+  outline: 2px solid rgba(31, 122, 140, 0.25);
+  border-color: var(--primary);
+}
+
+.button-row {
+  margin-top: 0.9rem;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 0.95rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 170ms ease, filter 170ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn.primary {
+  background: linear-gradient(120deg, var(--primary), var(--primary-strong));
+  color: white;
+}
+
+.btn.ghost {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--ink);
+}
+
+.btn.small {
+  padding: 0.42rem 0.75rem;
+  font-size: 0.82rem;
+}
+
+.btn.danger {
+  background: rgba(187, 62, 3, 0.1);
+  color: var(--danger);
+}
+
+.list-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;
+}
+
+thead th {
+  text-align: left;
+  background: rgba(31, 122, 140, 0.08);
+  color: var(--ink);
+}
+
+th,
+td {
+  padding: 0.68rem;
+  border-bottom: 1px solid var(--line);
+}
+
+tbody tr {
+  animation: row-in 320ms ease;
+}
+
+tbody tr:hover {
+  background: rgba(31, 122, 140, 0.06);
+}
+
+.actions {
+  display: flex;
+  gap: 0.45rem;
+  white-space: nowrap;
+}
+
+.feedback {
+  margin: 0.2rem 0 0.6rem;
+  font-size: 0.9rem;
+}
+
+.feedback.error {
+  color: var(--danger);
+}
+
+.feedback.muted {
+  color: var(--muted);
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes row-in {
+  from {
+    opacity: 0;
+    transform: translateX(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 920px) {
+  .layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-shell {
+    padding: 1.2rem 0.75rem 1.5rem;
+  }
+
+  .card {
+    border-radius: 16px;
+  }
+}
